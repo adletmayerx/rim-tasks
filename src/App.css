@@ -1,0 +1,11 @@
+#root {
+    max-width: 1280px;
+}
+
+.App {
+    background-color: #737373;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+}

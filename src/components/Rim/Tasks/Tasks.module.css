@@ -1,0 +1,31 @@
+.tasks {
+    display: flex;
+    justify-content: flex-start;
+    gap: 52px;
+    padding: 15px;
+    background-color: #f8fafc;
+}
+
+.tasks__title {
+    height: 180px;
+    text-overflow: ellipsis;
+    writing-mode: vertical-lr;
+    transform: scale(-1, -1);
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 8px;
+    background-color: #3b82f6;
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+
+.tasks__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    list-style-type: none;
+}

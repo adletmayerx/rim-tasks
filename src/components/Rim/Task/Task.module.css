@@ -1,0 +1,42 @@
+.task {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.task__title {
+    background-color: #3b82f6;
+    color: #f8fafc;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.task__content {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task__task-count {
+    color: #3b82f6;
+    font-size: 32px;
+}
+
+.red {
+    background-color: #fca5a5;
+}
+
+.yellow {
+    background-color: #fef08a;
+}
+
+.green {
+    background-color: #86efac;
+}
