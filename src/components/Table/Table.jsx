@@ -60,12 +60,38 @@ const Table = () => {
         { id: "gaz", name: "ПАО Газпром" },
         { id: "fds", name: "ФДС" },
         { id: "fns", name: "ФНС" },
-        { id: "heads-subj", name: "Главы субьектов" },
+        { id: "heads-subj", name: "Главы субъектов" },
+        { id: "judge", name: "Судебные органы" },
+        { id: "gen-dir", name: "Особый контроль генерального директора" },
     ];
+
+    let totalTasksQuantity = 0;
+
+    for (let user of users) {
+        let totalUserTasksQuantity = 0;
+
+        for (let task of user.tasks) {
+            const company = companies.find((company) => company.id === task.companyId);
+
+            if (company.tasksQuantity) {
+                company.tasksQuantity += task.quantity;
+            } else {
+                company.tasksQuantity = task.quantity;
+            }
+
+            totalUserTasksQuantity += task.quantity;
+        }
+
+        totalTasksQuantity += totalUserTasksQuantity;
+    }
 
     return (
         <div>
-            <table></table>
+            <ul>
+                {users.map((user) => {
+                    <li key={user.id}>{user.name}</li>;
+                })}
+            </ul>
 
             <table></table>
         </div>
