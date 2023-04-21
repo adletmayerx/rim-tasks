@@ -1,63 +1,71 @@
 import clsx from "clsx";
 import styles from "./TableWithSlider.module.css";
 import Slider from "../Slider/Slider";
+import { useState } from "react";
 
 const TableWithSlider = () => {
-  const users = [
-    {
-      id: 1,
-      name: "ЗГД 1",
-      tasks: [
-        { companyId: "gaz", quantity: 1 },
-        { companyId: "fds", quantity: 3 },
-        { companyId: "judge", quantity: 1 },
-        { companyId: "gen-dir", quantity: 2 },
-      ],
-    },
-    {
-      id: 2,
-      name: "ЗГД 2",
-      tasks: [
-        { companyId: "gaz", quantity: 4 },
-        { companyId: "gen-dir", quantity: 1 },
-      ],
-    },
-    {
-      id: 3,
-      name: "ЗГД 4",
-      tasks: [
-        { companyId: "gaz", quantity: 7 },
-        { companyId: "gen-dir", quantity: 4 },
-      ],
-    },
-    {
-      id: 4,
-      name: "ЗГД 5",
-      tasks: [
-        { companyId: "gaz", quantity: 9 },
-        { companyId: "gen-dir", quantity: 6 },
-      ],
-    },
-    {
-      id: 5,
-      name: "ЗГД 7",
-      tasks: [
-        { companyId: "gaz", quantity: 1 },
-        { companyId: "judge", quantity: 2 },
-      ],
-    },
-    {
-      id: 6,
-      name: "ЗГД 8",
-      tasks: [{ companyId: "gaz", quantity: 2 }],
-    },
-    {
-      id: 7,
-      name: "ГБ",
-      tasks: [{ companyId: "fns", quantity: 1 }],
-    },
-  ];
+  const usersGroupArray = [
+    [
+      {
+        id: 1,
+        name: "ЗГД 1",
+        tasks: [
+          { companyId: "gaz", quantity: 1 },
+          { companyId: "fds", quantity: 3 },
+          { companyId: "judge", quantity: 1 },
+          { companyId: "gen-dir", quantity: 2 },
+        ],
+      },
+      {
+        id: 2,
+        name: "ЗГД 2",
+        tasks: [
+          { companyId: "gaz", quantity: 4 },
+          { companyId: "gen-dir", quantity: 1 },
+        ],
+      },
+    ],
+    [
+      {
+        id: 3,
+        name: "ЗГД 4",
+        tasks: [
+          { companyId: "gaz", quantity: 7 },
+          { companyId: "gen-dir", quantity: 4 },
+        ],
+      },
 
+      {
+        id: 4,
+        name: "ЗГД 5",
+        tasks: [
+          { companyId: "gaz", quantity: 9 },
+          { companyId: "gen-dir", quantity: 6 },
+        ],
+      },
+      {
+        id: 5,
+        name: "ЗГД 7",
+        tasks: [
+          { companyId: "gaz", quantity: 1 },
+          { companyId: "judge", quantity: 2 },
+        ],
+      },
+    ],
+    [
+      {
+        id: 6,
+        name: "ЗГД 8",
+        tasks: [{ companyId: "gaz", quantity: 2 }],
+      },
+
+      {
+        id: 7,
+        name: "ГБ",
+        tasks: [{ companyId: "fns", quantity: 1 }],
+      },
+    ],
+  ];
   const companies = [
     { id: "gaz", name: "ПАО Газпром" },
     { id: "fds", name: "ФДС" },
@@ -66,7 +74,10 @@ const TableWithSlider = () => {
     { id: "judge", name: "Судебные органы" },
     { id: "gen-dir", name: "Особый контроль генерального директора" },
   ];
+  const buttons = [{ name: "Отделы, службы" }, { name: "ГИ, ЗГД, ГБ" }, { name: "ЛПУМГ" }];
 
+  const [usersState, setUsersState] = useState(0);
+  const users = usersGroupArray[usersState];
   let totalTasksQuantity = 0;
 
   for (let user of users) {
@@ -87,8 +98,6 @@ const TableWithSlider = () => {
     user.totalTasksQuantity = totalUserTasksQuantity;
     totalTasksQuantity += totalUserTasksQuantity;
   }
-
-  const buttons = [{ name: "Отделы, службы" }, { name: "ГИ, ЗГД, ГБ" }, { name: "ЛПУМГ" }];
 
   return (
     <div className={styles["container"]}>
@@ -209,7 +218,7 @@ const TableWithSlider = () => {
           })}
         </tbody>
       </table>
-      <Slider buttons={buttons} className={styles.slider} />
+      <Slider buttons={buttons} className={styles.slider} state={usersState} setState={setUsersState} limit={usersGroupArray.length - 1} />
     </div>
   );
 };
