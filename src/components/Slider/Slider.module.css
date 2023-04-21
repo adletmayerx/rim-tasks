@@ -1,0 +1,59 @@
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bfdbfe;
+  padding: 5px;
+  border-radius: 4px;
+  width: 400px;
+}
+
+.button {
+  border: none;
+  padding: 0;
+  transition: scale 0.3s;
+}
+
+.button:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.button-prev {
+  border-radius: 0;
+  background: transparent;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-right: 10px solid #3b82f6;
+}
+
+
+.button-next {
+  border-radius: 0;
+  background: transparent;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-left: 10px solid #3b82f6;
+}
+
+.button-round {
+  border-radius: 10px;
+  background: #3b82f6;
+  width: 10px;
+  height: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__span {
+  position: relative;
+  color: #111827;
+  font-size: 12px;
+  margin-top: 50px;
+  white-space: nowrap;
+}

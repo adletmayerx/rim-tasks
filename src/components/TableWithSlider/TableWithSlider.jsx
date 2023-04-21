@@ -1,5 +1,6 @@
-import styles from "./Table.module.css";
 import clsx from "clsx";
+import styles from "./TableWithSlider.module.css";
+import Slider from "../Slider/Slider";
 
 const TableWithSlider = () => {
   const users = [
@@ -87,8 +88,10 @@ const TableWithSlider = () => {
     totalTasksQuantity += totalUserTasksQuantity;
   }
 
+  const buttons = [{ name: "Отделы, службы" }, { name: "ГИ, ЗГД, ГБ" }, { name: "ЛПУМГ" }];
+
   return (
-    <div className={styles["table-container"]}>
+    <div className={styles["container"]}>
       <table className={styles.table}>
         <colgroup>
           <col className={styles.table__column_m} />
@@ -206,6 +209,7 @@ const TableWithSlider = () => {
           })}
         </tbody>
       </table>
+      <Slider buttons={buttons} className={styles.slider} />
     </div>
   );
 };

@@ -2,11 +2,14 @@
   box-sizing: border-box;
 }
 
-.table-container {
+.container {
   display: flex;
   table-layout: fixed;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-end;
+  gap: 28px;
+  padding-bottom: 40px
 }
 
 .table {
@@ -48,7 +51,6 @@
   white-space: nowrap;
 } */
 
-
 .green {
   background-color: #22c55e;
 }
@@ -63,4 +65,8 @@
 
 .red {
   background-color: #be123c;
+}
+
+.slider {
+  margin-right: 100px;
 }
