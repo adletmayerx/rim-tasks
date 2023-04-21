@@ -1,10 +1,12 @@
 import "./App.css";
-import Tasks from "./components/Rim/Tasks/Tasks";
+// import Tasks from "./components/Tasks/Tasks";
+import Table from "./components/Table/Table";
 
 function App() {
     return (
         <div className="App">
-            <Tasks></Tasks>
+            {/* <Tasks></Tasks> */}
+            <Table></Table>
         </div>
     );
 }
